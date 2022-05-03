@@ -1,0 +1,43 @@
+{
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/starter-microservice/src",
+  "monorepo": true,
+  "root": "apps/starter-microservice",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/starter-microservice/tsconfig.app.json",
+    "assets": [
+      "**/*.yaml"
+    ],
+    "watchAssets": true
+  },
+  "projects": {
+    "starter-microservice": {
+      "type": "application",
+      "root": "apps/starter-microservice",
+      "entryFile": "main",
+      "sourceRoot": "apps/starter-microservice/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/starter-microservice/tsconfig.app.json"
+      }
+    },
+    "starter-microservice-typeorm": {
+      "type": "application",
+      "root": "apps/starter-microservice-typeorm",
+      "entryFile": "main",
+      "sourceRoot": "apps/starter-microservice-typeorm/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/starter-microservice-typeorm/tsconfig.app.json"
+      }
+    },
+    "starter-microservice-graphql-client": {
+      "type": "application",
+      "root": "apps/starter-microservice-graphql-client",
+      "entryFile": "main",
+      "sourceRoot": "apps/starter-microservice-graphql-client/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/starter-microservice-graphql-client/tsconfig.app.json"
+      }
+    }
+  }
+}

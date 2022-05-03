@@ -1,0 +1,31 @@
+consul:
+  host: localhost
+  # Use the port :
+  # 30000 = if u run this project in local using configuration in consul/config-local.yaml or
+  # 8500  = if u run in kubernetes or docker as container
+  port: 30000 
+service:
+  name: starter-microservice-typeorm
+  port: 2000
+  healthCheck:
+    interval: 10s
+    timeout: 1s
+config:
+  name: ${{ service.name }}-config
+loadbalance:
+  rule: RandomRule
+logger:
+  level: info
+  transports:
+    - transport: console
+      colorize: true
+      datePattern: YYYY-MM-DD hh:mm:ss
+      label: ${{ service.name }}
+database:
+  type: 'postgres'
+  url: 'postgres://user:password@localhost:5432/starter-microservice'
+  synchronize: true
+  migrationsRun: false
+  maxQueryExecutionTime: 1000
+graphql:
+  playground: true
